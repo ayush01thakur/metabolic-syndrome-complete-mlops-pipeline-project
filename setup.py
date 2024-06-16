@@ -3,7 +3,7 @@ from setuptools import find_packages,setup
 
 def install_req(req_path:str)->list[str]:
     '''
-    this function will return the list of requirements
+    returns the list of requirements and initializes the project setup.
     '''
     requirements=[]
     with open(req_path) as file_obj:
