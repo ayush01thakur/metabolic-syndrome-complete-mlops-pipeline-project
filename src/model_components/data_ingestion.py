@@ -8,6 +8,7 @@ from dataclasses import dataclass
 
 
 from src.model_components.data_preprocessing import DataPreprocessing, DataPreprocessingConfig
+from src.model_components.model_training import ModelTrainingConfig, ModelTrainer
 
 
 @dataclass
@@ -64,5 +65,5 @@ if __name__=="__main__":
     data_preprocessing=DataPreprocessing()
     train_arr,test_arr,_=data_preprocessing.initiate_data_preprocessing(train_data,test_data)
 
-    # modeltrainer=ModelTrainer()
-    # print(modeltrainer.initiate_model_trainer(train_arr,test_arr))
+    modeltrainer=ModelTrainer()
+    print(modeltrainer.initiate_model_trainer(train_arr,test_arr))
