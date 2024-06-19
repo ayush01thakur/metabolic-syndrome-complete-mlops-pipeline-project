@@ -11,6 +11,12 @@ from sklearn.model_selection import GridSearchCV
 
 
 def save_object(file_path, obj):
+    """
+    Saves the objects (files and folder)
+    args: 
+        filer_path: path of the file
+        obj: the object that needed to be saved at the given path
+    """
     try:
         dir_path = os.path.dirname(file_path)
 
@@ -24,8 +30,14 @@ def save_object(file_path, obj):
         raise e
     
 def evaluate_models(X_train, y_train,X_test,y_test,models,param):
+    """
+    This function trains->tests->evaluates the listed models in model_training file.
+    returns:
+            report (evaluation report in format: {modelName: accuracy})
+    """
     try:
         report = {}
+        logging.info("Training over all the listed models and testing for the accuracy score to generate report")
 
         for i in range(len(list(models))):
             model = list(models.values())[i]
@@ -52,7 +64,7 @@ def evaluate_models(X_train, y_train,X_test,y_test,models,param):
         return report
 
     except Exception as e:
-        logging.info("error occured while evaluating model")
+        logging.info("error occured while evaluating listed models")
         raise e
     
 def load_object(file_path):

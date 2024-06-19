@@ -21,6 +21,12 @@ class ModelTrainer:
 
 
     def initiate_model_trainer(self,train_array,test_array):
+        """
+        This function inititates the model training process by evaluating several models
+        returns: 
+                accuracy of the best model
+                also creates model.pkl file in artifacts folder
+        """
         try:
             logging.info("Split training and test input data")
             X_train,y_train,X_test,y_test=(
