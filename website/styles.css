@@ -1,0 +1,117 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+
+.main-container {
+    display: flex;
+    height: 100vh;
+}
+
+.left-container {
+    background-color: #111111;
+    color: #fff;
+    padding-left: 40px;
+    padding-right: 40px;
+    /* padding-top: 10px; */
+    padding-bottom: 30px;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    text-align: justify;
+
+}
+
+.left-container h1 {
+    font-size: 5rem; /* Increased font size */
+    margin-bottom: 20px;
+    color: #f8f8f8;
+}
+
+.left-container p {
+    line-height: 1.5;
+    margin-bottom: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+    
+}
+
+.right-container {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(171, 170, 167, 0.504);
+}
+
+.form-container {
+    max-width: 800px;
+    padding: 30px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+h1 {
+    text-align: center;
+    color: #3f3f3f;
+    margin-bottom: 5px;
+}
+
+h4 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.form-group:last-child {
+    margin-right: 0;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+input[type="number"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    margin: 30px auto 0;
+    font-size: 16px;
+}
+
+button[type="submit"]:hover {
+    background-color: #181a18;
+}

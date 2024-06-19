@@ -57,13 +57,3 @@ class DataIngestion:
         except Exception as e:
             logging.error(f"Error while initiation of data ingestion: {e}")
             raise e
-
-if __name__=="__main__":
-    dataIngestionObj=DataIngestion()
-    train_data,test_data=dataIngestionObj.initiate_dataIngetion()
-
-    data_preprocessing=DataPreprocessing()
-    train_arr,test_arr,_=data_preprocessing.initiate_data_preprocessing(train_data,test_data)
-
-    modeltrainer=ModelTrainer()
-    print(modeltrainer.initiate_model_trainer(train_arr,test_arr))
