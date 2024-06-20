@@ -39,10 +39,9 @@ class PredictPipeline:
             raise e
 
 
-def get_data_as_data_frame(data: dict)-> pd.DataFrame:
+def convertToDataframe(data: dict)-> pd.DataFrame:
     """
     This function interacts with the web page and dets the user data, then convert the data into dataframe
-    
     """
     try:
         logging.info("converting the dictionary data into the required dataframe object")

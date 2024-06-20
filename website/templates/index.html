@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Metabolic Syndrome Checker</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
 </head>
 <body>
     <div class="main-container">
@@ -14,11 +15,12 @@
             <p>Metabolic syndrome is a cluster of conditions that occur together, increasing your risk of heart disease, stroke and type 2 diabetes. These conditions include increased blood pressure, high blood sugar, excess body fat around the waist, and abnormal cholesterol or triglyceride levels.</p>
             <p>Having metabolic syndrome can increase your risk of developing cardiovascular disease, stroke, and type 2 diabetes. It's important to manage metabolic syndrome to reduce these risks and improve overall health.</p>
         </div>
+        
         <div class="right-container">
             <div class="form-container">
                 <h1>Do You Have Metabolic Syndrome?</h1>
                 <h4>Let's Find Out. Fill the details from your test reports.</h4>
-                <form>
+                <form action="{{ url_for('predict_datapoint')}}" method="post">
                     <div class="form-row">
                         <div class="form-group">
                             <label for="age">Age: </label>
@@ -47,7 +49,7 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label for="income">Income: <span class="info-icon" data-tooltip="Enter your monthly income in Indian Rupees">&#9432;</span></label>
-                            <input type="number" id="income" name="income" min="0" required>
+                            <input type="number" id="income" name="income" min="0" step="1" required>
                         </div>
                         <div class="form-group">
                             <label for="race">Race: </label>
@@ -82,7 +84,7 @@
                         </div>
                         <div class="form-group">
                             <label for="urAlbCr">Ur Alb Cr: <span class="info-icon" data-tooltip="Urinary albumin-to-creatinine ratio. Urine albumin to creatinine ratio (ACR), also known as urine microalbumin, helps identify kidney disease that can occur as a complication of diabetes.">&#9432;</span></label>
-                            <input type="number" id="urAlbCr" name="urAlbCr" min="0" step="0.1" required>
+                            <input type="number" id="urAlbCr" name="urAlbCr" min="0" step="0.01" required>
                         </div>
                     </div>
                     <div class="form-row">
@@ -110,5 +112,10 @@
             </div>
         </div>
     </div>
+    
+    <h2>
+        THE  prediction is {{results}}
+    </h2>
+
 </body>
 </html>

@@ -76,21 +76,3 @@ def load_object(file_path):
         logging.info("error occured while loading the object- ", file_path)
         raise e
     
-
-def settleData(data: dict)-> dict:
-    logging.info("changing the values/units of income, waist circ, and Albuminuria")
-    # setting the inr value according to dataset
-    data['Income']= data['Income']*83
-    data['WaistCirc']= round(data['WaistCirc']/2.54, 1)
-
-    # transforming the Albuminuria values
-    if(data['Albuminuria']=='Normal'):
-        data['Albuminuria']=0
-    elif data['Albuminuria']=='Medium':
-        data['Albuminuria']=1
-    else:
-        data['Albuminuria']=2
-
-    logging.info("transformation into those units done;")
-    
-    return data
