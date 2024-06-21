@@ -144,3 +144,38 @@ button[type="submit"]:hover {
     visibility: visible;
     opacity: 1;
 }
+
+
+/* results css */
+.result-box {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.result-box h2 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.result-box.default {
+    background-color: rgba(200, 200, 200, 0.1);
+    border: 1px solid rgba(200, 200, 200, 0.3);
+    color: #555;
+}
+
+.result-box.red {
+    background-color: rgba(255, 0, 0, 0.1);
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    color: #d32f2f;
+}
+
+.result-box.green {
+    background-color: rgba(0, 255, 0, 0.1);
+    border: 1px solid rgba(0, 255, 0, 0.3);
+    color: #388e3c;
+}

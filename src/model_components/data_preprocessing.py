@@ -31,7 +31,7 @@ class DataPreprocessing:
             # numerical and categorical columns
             logging.info("listing numericals and categoricals columns")
             data= pd.read_csv('raw_data\Metabolic Syndrome.csv')
-            data = data=data.drop(columns=['seqn'])
+            data = data.drop(columns=['seqn', 'Income'])
 
             numeric_columns= data.select_dtypes(include='number').columns.drop("MetabolicSyndrome")
             categorical_columns= data.select_dtypes(include='object').columns

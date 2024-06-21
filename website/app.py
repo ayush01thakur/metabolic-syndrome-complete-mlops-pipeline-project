@@ -12,10 +12,9 @@ app=application
 
 # code for adjusting the values mapping with model requirements and user input
 def settleData(data: dict)-> dict:
-    logging.info("changing the values/units of income, waist circ, and Albuminuria")
+    logging.info("changing the values/units of waist circ and Albuminuria")
     # setting the inr value according to dataset
     try:
-        data['Income']= [round(data['Income'][0]/83, 0)]
         data['WaistCirc']= [round(float(data['WaistCirc'][0]) * 2.54, 1)]
 
         # transforming the Albuminuria values
@@ -35,30 +34,24 @@ def settleData(data: dict)-> dict:
 
 
 
-## Route for a home page
-
-# @app.route('/')
-# def index():
-#     return render_template('index.html') 
+## Route for a index page
 
 @app.route('/',methods= ['GET','POST'])
 def predict_datapoint():
     print("inside the predict_datapoint()")
 
     if request.method=='GET':
-        print("inside if statement")
+        logging.info(" request.method=GET called, redenring website index.html ")
         return render_template('index.html')
     else:
         try:
-            print("inside else st try block")
             logging.info("getting data from the form ")
-            print(request.form)
+            # print(request.form)
             logging.info(f"Form data: {request.form}")
 
             data= {'Age': [int(request.form.get('age'))],
                 'Sex': [request.form.get('sex')],
                 'Marital': [request.form.get('marital')],
-                'Income': [int(request.form.get('income'))],
                 'Race': [request.form.get('race')],
                 'WaistCirc':[float(request.form.get('waistCirc'))],
                 'BMI': [float(request.form.get('bmi'))],
@@ -84,7 +77,7 @@ def predict_datapoint():
             logging.info(f"storing the result in results variable {results}")
 
             return render_template('index.html', results=results[0])
-            # return str(results[0] + " is the answer")
+            
 
         except Exception as e:
             logging.info(f"Error processing form data: {str(e)}")

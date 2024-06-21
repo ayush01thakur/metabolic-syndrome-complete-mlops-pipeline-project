@@ -30,7 +30,7 @@ class DataIngestion:
 
         try:
             df = pd.read_csv('raw_data\Metabolic Syndrome.csv')
-            df=df.drop(columns=['seqn'])
+            df=df.drop(columns=['seqn', 'Income'])
 
             logging.info('Read the dataset (metabolic Syndrome.csv)')
 

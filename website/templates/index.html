@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Metabolic Syndrome Checker</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-
 </head>
 <body>
     <div class="main-container">
@@ -48,10 +47,6 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="income">Income: <span class="info-icon" data-tooltip="Enter your monthly income in Indian Rupees">&#9432;</span></label>
-                            <input type="number" id="income" name="income" min="0" step="1" required>
-                        </div>
-                        <div class="form-group">
                             <label for="race">Race: </label>
                             <select id="race" name="race" required>
                                 <option value="">Select</option>
@@ -67,12 +62,12 @@
                             <label for="waistCirc">Waist Circumference: <span class="info-icon" data-tooltip="Enter your waist circumference in inches">&#9432;</span></label>
                             <input type="number" id="waistCirc" name="waistCirc" min="0" step="0.1" required>
                         </div>
-                    </div>
-                    <div class="form-row">
                         <div class="form-group">
                             <label for="bmi">BMI: <span class="info-icon" data-tooltip="Body Mass Index, a measure of body composition.&#10;&#10;BMI= weight in kg/ height squared in cm">&#9432;</span></label>
                             <input type="number" id="bmi" name="bmi" min="0" required>
                         </div>
+                    </div>
+                    <div class="form-row">
                         <div class="form-group">
                             <label for="albuminuria">Albuminuria: <span class="info-icon" data-tooltip="Measurement related to albumin in urine.&#10;&#10;Normal: Less than 30 mcg/mg creatinine,&#10;&#10;Microalbuminuria: 30-300 mcg/mg creatinine,&#10;&#10;Clinical albuminuria: More than 300 mcg/mg creatinine">&#9432;</span></label>
                             <select id="albuminuria" name="albuminuria" required>
@@ -86,12 +81,12 @@
                             <label for="urAlbCr">Ur Alb Cr: <span class="info-icon" data-tooltip="Urinary albumin-to-creatinine ratio. Urine albumin to creatinine ratio (ACR), also known as urine microalbumin, helps identify kidney disease that can occur as a complication of diabetes.">&#9432;</span></label>
                             <input type="number" id="urAlbCr" name="urAlbCr" min="0" step="0.01" required>
                         </div>
-                    </div>
-                    <div class="form-row">
                         <div class="form-group">
                             <label for="uricAcid">Uric Acid: <span class="info-icon" data-tooltip="Uric acid levels in the blood.">&#9432;</span></label>
                             <input type="number" id="uricAcid" name="uricAcid" min="0" step="0.1" required>
                         </div>
+                    </div>
+                    <div class="form-row">
                         <div class="form-group">
                             <label for="bloodGlucose">Blood Glucose: <span class="info-icon" data-tooltip="Blood glucose levels, an indicator of diabetes risk.">&#9432;</span></label>
                             <input type="number" id="bloodGlucose" name="bloodGlucose" min="1" step="1" required>
@@ -100,8 +95,6 @@
                             <label for="hdl">HDL: <span class="info-icon" data-tooltip="High-Density Lipoprotein cholesterol levels (the good cholesterol, higher the better).">&#9432;</span></label>
                             <input type="number" id="hdl" name="hdl" min="0" step="0.1" required>
                         </div>
-                    </div>
-                    <div class="form-row">
                         <div class="form-group">
                             <label for="triglycerides">Triglycerides: <span class="info-icon" data-tooltip="Triglyceride levels in the blood. Triglycerides are a type of fat (lipid) found in your blood.">&#9432;</span></label>
                             <input type="number" id="triglycerides" name="triglycerides" min="1" step="1" required>
@@ -109,13 +102,26 @@
                     </div>
                     <button type="submit">Submit</button>
                 </form>
+
+                <div class="result-box {% if results is defined %}{% if results == 1 %}red{% elif results == 0 %}green{% else %}default{% endif %}{% else %}default{% endif %}">
+                    <h2>
+                        {% if results is defined %}
+                            {% if results == 1 %}
+                                Positive result: High chance that you have Metabolic Syndrome.
+                            {% elif results == 0 %}
+                                Negetive result: you does not seem to have Metabolic Syndrome.
+                            {% else %}
+                                Invalid result
+                            {% endif %}
+                        {% else %}
+                            Results will be shown here.
+                        {% endif %}
+                    </h2>
+                </div>
+
             </div>
         </div>
     </div>
     
-    <h2>
-        THE  prediction is {{results}}
-    </h2>
-
 </body>
 </html>
