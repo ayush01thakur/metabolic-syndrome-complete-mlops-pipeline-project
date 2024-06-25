@@ -4,15 +4,6 @@ This project predicts the likelihood of metabolic syndrome based on medical test
 
 ![image](https://github.com/ayush01thakur/metabolic-syndrome-complete-mlops-pipeline-project/assets/124871122/98168461-70e7-4bf2-9cde-1169742e2cde)
 
-
-## Features
-
-- Data ingestion from various medical test report formats
-- Preprocessing of health parameters
-- Machine learning model for metabolic syndrome prediction
-- Separate pipelines for training and prediction
-- Web interface for easy interaction with the prediction model
-
 ## Installation
 
 1. Clone this repository:
@@ -65,6 +56,19 @@ We will drop some features during the feature selection process, have a look at 
    These log files will be created whenever you run the app.py or any pipeline files like `run_training_pipeline.py` or `run_prediction_pipeline.py`. These will help you to navigate the workings of the project and will also help in identifying the errors that occur.
 
 4. Fill in the details for the asked fields, and hit the submit button. You can hover over the `i` icon for the details of the asked fields.
-5. You will see the results below the submit button. 
+5. You will see the results below the submit button.
+
+
+
+## Pipeline and Component Features
+
+   `model_components` : This folder contains all the major component files or dependencies for the traning of the model.
+      - Data ingestion: This file ingest the data from various sources (here from csv file stored inside the `raw_data` directory).
+      - Preprocessing and Transformation: This file  preprocess and transform data according the analysis done in EDA `eda.ipynb` file  in `raw_data` directory. This will produce a `preprocessing.pkl` file (stored inside `artifacts` folder) which will help the preprocessing of the input data while prediction.
+      - ML Model Development: Before model development this file creates several machine learning models and compares their accuracies. It select the model with the highest accuracy and then stores the `model.pkl` file inside `artifacts` folder, which will later helps in prediction. 
+
+   `pipelines` : This stores the major pipeline which is training and prediction pipeline, later will add deployment pipeline as well.
+      - training pipeline: this sets up the base for the prediction pipeline as the prediciton pipeline cannot run without the  `model.pkl` and `preprocessing.pkl` files which is produced during this pipeline's execution.
+      - prediction pipeline: this will predic the results and send back to the `app.py` file to disply on the website.
 
   
