@@ -2,6 +2,9 @@
 
 This project predicts the likelihood of metabolic syndrome based on medical test reports. It uses machine learning techniques to analyze various health parameters and determine if an individual is at risk of metabolic syndrome.
 
+![image](https://github.com/ayush01thakur/metabolic-syndrome-complete-mlops-pipeline-project/assets/124871122/98168461-70e7-4bf2-9cde-1169742e2cde)
+
+
 ## Features
 
 - Data ingestion from various medical test report formats
