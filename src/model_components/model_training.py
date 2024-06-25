@@ -98,9 +98,9 @@ class ModelTrainer:
             )
 
             predicted=best_model.predict(X_test)
-
             acc = accuracy_score(y_test, predicted)
-            return acc
+            
+            return round(acc, 2)
             
 
             

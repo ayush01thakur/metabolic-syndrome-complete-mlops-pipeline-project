@@ -32,7 +32,7 @@ class DataIngestion:
             df = pd.read_csv('raw_data\Metabolic Syndrome.csv')
             df=df.drop(columns=['seqn', 'Income'])
 
-            logging.info('Read the dataset (metabolic Syndrome.csv)')
+            logging.info('Read the dataset (metabolic_Syndrome.csv)')
 
             os.makedirs(os.path.dirname(self.ingestion_config.raw_data_path), exist_ok=True)
 

@@ -1,13 +1,33 @@
 from src.logger import logging
 from src.pipelines.prediction_pipeline import PredictPipeline
-from src.pipelines.prediction_pipeline import get_data_as_data_frame
 import pandas as pd
 
-def run_prediction(featureData: pd.DataFrame):
-    pred= PredictPipeline.predict(featureData)
-    print(pred)
+from src.pipelines.training_pipeline import trainingPipeline
+from src.logger import logging
 
-if __name__=="__main__":
-    # here write the code to get the data for prediction 
-    featureData= get_data_as_data_frame()
-    run_prediction(featureData)
+
+
+import os
+
+def run_prediction(featureData: pd.DataFrame) -> int:
+    if os.path.exists('artifacts/model.pkl'):
+        print(f"The model file file is present in the artifacts directory.")
+        logging.info("model.pkl file exist running the prediction now.")
+
+        # now code to call the prediction right away
+        predPipeline= PredictPipeline()
+        pred= predPipeline.predict(featureData)
+        print(pred)
+        return pred
+            
+    else:
+        print(f"The model.pkl file is not found in the artifacts directory.")
+        logging.info("model.pkl file does not exits, runnint the training pipeline first")
+        trainingPipeline()
+
+        # after running the training pipeline the model.pkl file should be present.
+        pred= PredictPipeline.predict(featureData)
+        print(pred)
+        return pred
+
+

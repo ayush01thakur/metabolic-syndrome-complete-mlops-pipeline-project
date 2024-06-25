@@ -19,6 +19,6 @@ def  trainingPipeline():
     train_arr,test_arr,_=data_preprocessing.initiate_data_preprocessing(train_data,test_data)
 
     modeltrainer=ModelTrainer()
-    print(modeltrainer.initiate_model_trainer(train_arr,test_arr))
+    print("accuracy of best model is:", modeltrainer.initiate_model_trainer(train_arr,test_arr))
 
     

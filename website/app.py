@@ -2,9 +2,11 @@ from flask import Flask,request, render_template
 import numpy as np
 import pandas as pd
 
-from sklearn.preprocessing import StandardScaler
-from src.pipelines.prediction_pipeline import PredictPipeline, convertToDataframe
+from src.pipelines.prediction_pipeline import convertToDataframe
 from src.logger import logging
+
+from run_prediction_pipeline import run_prediction
+
 
 application = Flask(__name__, template_folder='templates')
 
@@ -16,6 +18,7 @@ def settleData(data: dict)-> dict:
     # setting the inr value according to dataset
     try:
         data['WaistCirc']= [round(float(data['WaistCirc'][0]) * 2.54, 1)]
+        data['BMI']=[int(data['BMI'][0])]
 
         # transforming the Albuminuria values
         if(data['Albuminuria'][0]=='Normal'):
@@ -71,8 +74,8 @@ def predict_datapoint():
             pred_df=convertToDataframe(data)
 
             logging.info("Initiating the prediction pipeline")
-            predict_pipeline=PredictPipeline()
-            results=predict_pipeline.predict(pred_df)
+            
+            results=run_prediction(pred_df)
 
             logging.info(f"storing the result in results variable {results}")
 

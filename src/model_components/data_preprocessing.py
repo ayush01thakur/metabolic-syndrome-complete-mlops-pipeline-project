@@ -17,7 +17,6 @@ class DataPreprocessingConfig:
     preprocessor_obj_file_path=os.path.join('artifacts',"preprocessor.pkl")
 
 
-
 class DataPreprocessing:
     def __init__(self):
         self.data_preprocessing_config= DataPreprocessingConfig()
@@ -55,7 +54,6 @@ class DataPreprocessing:
                 ("one_hot_encoder",OneHotEncoder()),
                 ("scaler",StandardScaler(with_mean=False))
                 ]
-
             )
 
             logging.info("numerical and categorical columns pipeline created.")

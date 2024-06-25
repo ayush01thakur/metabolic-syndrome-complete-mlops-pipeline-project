@@ -63,8 +63,8 @@
                             <input type="number" id="waistCirc" name="waistCirc" min="0" step="0.1" required>
                         </div>
                         <div class="form-group">
-                            <label for="bmi">BMI: <span class="info-icon" data-tooltip="Body Mass Index, a measure of body composition.&#10;&#10;BMI= weight in kg/ height squared in cm">&#9432;</span></label>
-                            <input type="number" id="bmi" name="bmi" min="0" required>
+                            <label for="bmi">BMI: <span class="info-icon" data-tooltip="Body Mass Index, a measure of body composition.&#10;&#10;BMI is weight in kilograms divided by height in meters squared">&#9432;</span></label>
+                            <input type="number" id="bmi" name="bmi" min="0" step="0.1" required>
                         </div>
                     </div>
                     <div class="form-row">
@@ -109,7 +109,7 @@
                             {% if results == 1 %}
                                 Positive result: High chance that you have Metabolic Syndrome.
                             {% elif results == 0 %}
-                                Negetive result: you does not seem to have Metabolic Syndrome.
+                                Negative result: you does not seem to have Metabolic Syndrome.
                             {% else %}
                                 Invalid result
                             {% endif %}

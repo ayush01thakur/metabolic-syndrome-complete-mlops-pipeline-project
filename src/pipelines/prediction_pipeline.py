@@ -8,7 +8,7 @@ class PredictPipeline:
     def __init__(self):
         pass
 
-    def predict(self, features):
+    def predict(self, features: pd.DataFrame)-> int:
         """
         This function perfroms the prediction on the data entered by the user.
         args:

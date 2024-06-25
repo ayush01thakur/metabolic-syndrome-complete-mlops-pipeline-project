@@ -62,8 +62,9 @@ h1 {
 
 h4 {
     text-align: center;
-    color: #333;
+    color: #595959;
     margin-bottom: 30px;
+    font-weight: 200;
 }
 
 .form-row {
