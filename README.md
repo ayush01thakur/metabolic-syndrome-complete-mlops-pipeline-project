@@ -62,13 +62,19 @@ We will drop some features during the feature selection process, have a look at 
 
 ## Pipeline and Component Features
 
-   `model_components` : This folder contains all the major component files or dependencies for the traning of the model.
-      - Data ingestion: This file ingest the data from various sources (here from csv file stored inside the `raw_data` directory).
-      - Preprocessing and Transformation: This file  preprocess and transform data according the analysis done in EDA `eda.ipynb` file  in `raw_data` directory. This will produce a `preprocessing.pkl` file (stored inside `artifacts` folder) which will help the preprocessing of the input data while prediction.
-      - ML Model Development: Before model development this file creates several machine learning models and compares their accuracies. It select the model with the highest accuracy and then stores the `model.pkl` file inside `artifacts` folder, which will later helps in prediction. 
+   ` MODEL COMPONENTS ` : This folder contains all the major component files or dependencies for the traning of the model.
 
-   `pipelines` : This stores the major pipeline which is training and prediction pipeline, later will add deployment pipeline as well.
-      - training pipeline: this sets up the base for the prediction pipeline as the prediciton pipeline cannot run without the  `model.pkl` and `preprocessing.pkl` files which is produced during this pipeline's execution.
-      - prediction pipeline: this will predic the results and send back to the `app.py` file to disply on the website.
+   - Data ingestion: This file ingest the data from various sources (here from csv file stored inside the `raw_data` directory).
+   
+   - Preprocessing and Transformation: This file  preprocess and transform data according the analysis done in EDA `eda.ipynb` file  in `raw_data` directory. This will produce a `preprocessing.pkl` file (stored inside `artifacts` folder) which will help the preprocessing of the input data while prediction.
+   
+   - ML Model Development: Before model development this file creates several machine learning models and compares their accuracies. It select the model with the highest accuracy and then stores the `model.pkl` file inside `artifacts` folder, which will later helps in prediction. 
+      
+
+   ` PIPELINE ` : This stores the major pipeline which is training and prediction pipeline, later will add deployment pipeline as well.
+   
+   - training pipeline: this sets up the base for the prediction pipeline as the prediciton pipeline cannot run without the  `model.pkl` and `preprocessing.pkl` files which is produced during this pipeline's execution.
+   
+   - prediction pipeline: this will predic the results and send back to the `app.py` file to disply on the website.
 
   
