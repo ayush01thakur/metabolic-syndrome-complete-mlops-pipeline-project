@@ -1,5 +1,7 @@
 # METABOLIC SYNDROME MLOPS COMPLETE PIPELINE PROJECT (INCLUDING WEB-APP)
 
+https://github.com/ayush01thakur/metabolic-syndrome-complete-mlops-pipeline-project/assets/124871122/3575d2ba-163d-4902-a14a-af6fbaa837b9
+
 This project predicts the likelihood of metabolic syndrome based on medical test reports. It uses machine learning techniques to analyze various health parameters and determine if an individual is at risk of metabolic syndrome.
 
 ![image](https://github.com/ayush01thakur/metabolic-syndrome-complete-mlops-pipeline-project/assets/124871122/98168461-70e7-4bf2-9cde-1169742e2cde)
@@ -76,5 +78,12 @@ We will drop some features during the feature selection process, have a look at 
    - training pipeline: this sets up the base for the prediction pipeline as the prediciton pipeline cannot run without the  `model.pkl` and `preprocessing.pkl` files which is produced during this pipeline's execution.
    
    - prediction pipeline: this will predic the results and send back to the `app.py` file to disply on the website.
+
+
+ ## Pipeline Logs
+
+![2](https://github.com/ayush01thakur/metabolic-syndrome-complete-mlops-pipeline-project/assets/124871122/43034e59-7747-421a-af82-23bf527d2747)
+
+![1](https://github.com/ayush01thakur/metabolic-syndrome-complete-mlops-pipeline-project/assets/124871122/ae10a819-a2b6-4331-986e-14fb57ec9725)
 
   
